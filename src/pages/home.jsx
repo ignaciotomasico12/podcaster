@@ -6,6 +6,7 @@ import '../styles/home.css';
 
 export default function Home() {
   const [podcasts, setPodcasts] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
   const searchInput = useRef(null);
 
   useEffect(() => {
@@ -25,32 +26,13 @@ export default function Home() {
     }
   }, []);
 
-  console.log(podcasts)
+  const filteredPodcasts = podcasts?.filter((podcast) => {
+    const name = podcast['im:name'].label.toLowerCase();
+    const artist = podcast['im:artist'].label.toLowerCase();
+    const search = searchTerm.toLowerCase();
+    return name.includes(search) || artist.includes(search);
+  });
 
-  const searchPodcast = searchInput.current
-
-  useEffect(() => {
-    if(searchPodcast) {
-      const handleSearch = () => {
-        const filter = searchPodcast.value.toUpperCase();
-    
-        const filteredPodcasts = podcasts.filter((podcast) => {
-          const podcastName = podcast['im:name'].label.toUpperCase();
-          const podcastAuthor = podcast['im:artist'].label.toUpperCase();
-          return podcastName.includes(filter) || podcastAuthor.includes(filter);
-        });
-    
-        setPodcasts(filteredPodcasts);
-      };
-    
-      searchPodcast.addEventListener('keyup', handleSearch);
-      return () => {
-        searchPodcast.removeEventListener('keyup', handleSearch);
-      };
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchPodcast]);
-  
 
   return (
     <Layout>
@@ -58,14 +40,22 @@ export default function Home() {
         <section className="podcasts_wrapper">
           <div className="podcast_search">
             <div className='count'>
-              <p>{podcasts.length}</p>
+              <p>{filteredPodcasts.length}</p>
             </div>
             <div className='search'>
-              <input className='input' type="text" placeholder="Filter podcast..." ref={searchInput}/>
+              <input 
+                className='input' type="text" placeholder="Filter podcast..." 
+                ref={searchInput} value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
           </div>
           <div className='podcast_list'>
-            {podcasts.map((podcast) => {
+            {podcasts.filter((podcast) => {
+              const name = podcast['im:name'].label.toLowerCase();
+              const artist = podcast['im:artist'].label.toLowerCase();
+              const search = searchTerm.toLowerCase();
+              return name.includes(search) || artist.includes(search);
+            }).map((podcast) => {
               return (
                 <Link to={`/podcast/${podcast.id.attributes['im:id']}`} className='podcast_item' key={podcast.id.attributes['im:id']}>
                   <div className='podcast_item_image'>

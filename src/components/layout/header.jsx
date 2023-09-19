@@ -22,7 +22,7 @@ export default function Header() {
                     <h1>Podcaster</h1>
                 </Link>
                 {hasChanged &&
-                    <div class="spinner"></div>
+                    <div className="spinner"></div>
                 }
             </div>
         </header>
