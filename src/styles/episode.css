@@ -1,0 +1,111 @@
+.episode_wrapper{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: nowrap;
+}
+
+.podcast_detail {
+    width: 30%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+    min-height: 150px;
+    height: 100%;
+}
+
+.podcast_detail .podcast_detail_artist{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 20px 0px;
+    margin-top: 20px;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.podcast_detail .podcast_detail_artist p {
+    margin: 0px;
+    padding: 0px;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.podcast_detail .podcast_detail_artist h3 {
+    margin: 0px;
+    padding: 0px;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+}
+
+.podcast_detail .podcast_detail_artist h3:hover {
+    color: #0b92b8;
+    cursor: pointer;
+}
+
+.podcast_detail .podcast_detail_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 20px 0px 0px 0px;
+}
+
+.podcast_detail .podcast_detail_info p {
+    margin: 0px;
+    padding: 0px;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.podcast_detail .podcast_detail_image{
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #eaeaea;
+}
+
+.podcast_detail .podcast_detail_image img{
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.episode_description {
+    width: 70%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.episode_description .episode_player{
+    width: 100%;
+    padding: 20px 0px 10px 0px;
+    border-top: 1px solid #eaeaea;
+}
+
+.episode_description .episode_player audio{
+    width: 100%;
+}
