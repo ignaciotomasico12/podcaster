@@ -1,0 +1,70 @@
+.app_header{
+    height: 50px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+    padding: 10px;
+}
+
+.wrapper{
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    height: 100%;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+h1{
+    margin: 0px !important;
+    font-size: 28px;
+    color: #61DAFB;
+    font-weight: 600;
+}
+
+.spinner {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.spinner::before,
+.spinner::after {
+    border: 2.5px solid #61DAFB;
+    border-radius: 50%;
+    position: absolute;
+    content: '';
+    display: block;
+}
+ 
+.spinner::before {
+    width: 15px;
+    height: 15px;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    animation: spinner 0.75s infinite linear reverse;
+}
+ 
+.spinner::after {
+    animation: spinner 0.5s infinite linear;
+    height: 20px;
+    width: 20px;
+    border-right-color: transparent;
+    border-top-color: transparent;
+}
+ 
+@keyframes spinner {
+    to {
+       transform: rotate(360deg);
+    }
+}
